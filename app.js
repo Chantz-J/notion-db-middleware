@@ -12,8 +12,11 @@ var notionRouter = require('./routes/notion');
 var app = express();
 
 app.use(cors({
-  origin: ['http://localhost:3001', 'https://00a7db56.notion-integration-client.pages.dev',
-   'https://notion-integration-client.pages.dev/'],
+  origin: [ 
+            'http://localhost:3001', 
+            'https://00a7db56.notion-integration-client.pages.dev',
+            'https://notion-integration-client.pages.dev/'
+          ],
   methods: 'GET,POST',
   credentials: true
 }));
