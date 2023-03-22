@@ -49,10 +49,10 @@ app.use('/notion', notionRouter)
 //   next();
 // });
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   next();
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
