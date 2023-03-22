@@ -11,16 +11,6 @@ var notionRouter = require('./routes/notion');
 
 var app = express();
 
-// app.use(cors({
-//   origin: [ 
-//             'http://localhost:3001', 
-//             'https://00a7db56.notion-integration-client.pages.dev',
-//             'https://notion-integration-client.pages.dev/'
-//           ],
-//   methods: 'GET, POST',
-//   credentials: true
-// }));
-
 const corsOptions = {
   origin: [ 
     'http://localhost:3001', 
@@ -59,9 +49,8 @@ app.use('/notion', notionRouter)
 //   next();
 // });
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
