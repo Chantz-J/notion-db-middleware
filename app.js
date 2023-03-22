@@ -11,15 +11,30 @@ var notionRouter = require('./routes/notion');
 
 var app = express();
 
-app.use(cors({
+// app.use(cors({
+//   origin: [ 
+//             'http://localhost:3001', 
+//             'https://00a7db56.notion-integration-client.pages.dev',
+//             'https://notion-integration-client.pages.dev/'
+//           ],
+//   methods: 'GET, POST',
+//   credentials: true
+// }));
+
+const corsOptions = {
   origin: [ 
-            'http://localhost:3001', 
-            'https://00a7db56.notion-integration-client.pages.dev',
-            'https://notion-integration-client.pages.dev/'
-          ],
+    'http://localhost:3001', 
+    'https://00a7db56.notion-integration-client.pages.dev',
+    'https://notion-integration-client.pages.dev/'
+  ],
   methods: 'GET, POST',
   credentials: true
-}));
+};
+
+app.use(cors(corsOptions));
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,13 +50,13 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/notion', notionRouter)
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Credentials', true);
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+//   res.header('Access-Control-Allow-Credentials', true);
+//   next();
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
