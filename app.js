@@ -28,7 +28,8 @@ const corsOptions = {
     'https://notion-integration-client.pages.dev/'
   ],
   methods: 'GET, POST',
-  credentials: true
+  credentials: true,
+  optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
